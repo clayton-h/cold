@@ -11,7 +11,7 @@ class TestCold(unittest.TestCase):
         self.assertEqual(ans, expected)
 
 
-class TestCold(unittest.TestCase):
+class TestCold2(unittest.TestCase):
     def test1(self) -> None:
         city = 'Mosfellsbaer'
         ans = findCloserCity(city, cities)
@@ -19,9 +19,33 @@ class TestCold(unittest.TestCase):
         self.assertEqual(ans, expected)
 
 
-class TestCold(unittest.TestCase):
+class TestCold3(unittest.TestCase):
     def test1(self) -> None:
-        city = 'Mulating'
+        city = 'Reykjavik'
+        ans = findCloserCity(city, cities)
+        expected = 'Reykjavik'
+        self.assertEqual(ans, expected)
+
+
+class TestCold4(unittest.TestCase):
+    def test1(self) -> None:
+        city = 'Akureyri'
         ans = findCloserCity(city, cities)
         expected = 'Akureyri'
+        self.assertEqual(ans, expected)
+
+
+class TestCold5(unittest.TestCase):
+    def test1(self) -> None:
+        city = 'Kopavogur'
+        ans = findCloserCity(city, cities)
+        expected = 'Reykjavik'
+        self.assertEqual(ans, expected)
+
+
+class TestCold6(unittest.TestCase):
+    def test1(self) -> None:
+        city = 'Mosfellsbaer'
+        ans = findCloserCity(city, cities)
+        expected = 'Reykjavik'
         self.assertEqual(ans, expected)
