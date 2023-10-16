@@ -14,21 +14,52 @@ clean:
 	rm -rf .mypy_cache
 	rm -rf .hypothesis
 
-.phony: test
-test:
+# a. Rule for local unit test
+.PHONY: local-unit-test
+local-unit-test:
 	pytest -v test_cold.py
 
-.phony: style-check
+# b. Rule for local Kattis test on sample input/output files
+.PHONY: local-kattis-test
+local-kattis-test:
+	@cat sample_input.in | python cold.py | diff - sample_output.ans
+	@echo "Local Kattis tests passed..."
+
+# c. Rule for checking styles using flake8
+.PHONY: style-check
 style-check:
 	flake8 .
 
-.phony: type-check
+# d. Rule for fixing styles using autopep8
+.PHONY: fix-style
+fix-style:
+	autopep8 --in-place --recursive --aggressive --aggressive .
+
+# e. Rule for checking types with mypy
+.PHONY: type-check
 type-check:
 	mypy --strict .
 
-.phony: kattis
-kattis:
-	@kattis -f cold.py
+# f. Rule to submit problem to Kattis using Kattis CLI
+.PHONY: submit-kattis
+submit-kattis:
+	kattis -f cold.py
+
+# .phony: test
+# test:
+# 	pytest -v test_cold.py
+
+# .phony: style-check
+# style-check:
+# 	flake8 .
+
+# .phony: type-check
+# type-check:
+# 	mypy --strict .
+
+# .phony: kattis
+# kattis:
+# 	@kattis -f cold.py
 	
 # add to all
 # .phony: test
