@@ -1,6 +1,6 @@
 #Makefile
 .phony: all
-all: local-unit-test
+all: clean
 	@echo "All done..."
 
 .PHONY: run
