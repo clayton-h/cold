@@ -5,7 +5,7 @@ all: test
 
 .PHONY: run
 run:
-	python cold.py
+	python hvert.py
 
 .PHONY: clean
 clean:
@@ -17,12 +17,12 @@ clean:
 # a. Rule for local unit test
 .PHONY: local-unit-test
 local-unit-test:
-	pytest -v test_cold.py
+	pytest -v test_hvert.py
 
 # b. Rule for local Kattis test on sample input/output files
 .PHONY: local-kattis-test
 local-kattis-test:
-	@cat sample_input.in | python cold.py | diff - sample_output.ans
+	@cat sample_input.in | python hvert.py | diff - sample_output.ans
 	@echo "Local Kattis tests passed..."
 
 # c. Rule for checking styles using flake8
@@ -43,11 +43,11 @@ type-check:
 # f. Rule to submit problem to Kattis using Kattis CLI
 .PHONY: submit-kattis
 submit-kattis:
-	kattis -f cold.py
+	kattis -f hvert.py
 
 # .phony: test
 # test:
-# 	pytest -v test_cold.py
+# 	pytest -v test_hvert.py
 
 # .phony: style-check
 # style-check:
@@ -59,13 +59,13 @@ submit-kattis:
 
 # .phony: kattis
 # kattis:
-# 	@kattis -f cold.py
+# 	@kattis -f hvert.py
 	
 # add to all
 # .phony: test
 # test:
-# 	@cat 1.in | python cold.py | diff - 1.ans
-# 	@cat 1.in | python cold.py | diff - 1.ans
+# 	@cat 1.in | python hvert.py | diff - 1.ans
+# 	@cat 1.in | python hvert.py | diff - 1.ans
 # 	@echo "All tests passed..."
 
 # TEST = pytest 

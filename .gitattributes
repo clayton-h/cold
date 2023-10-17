@@ -1,1 +1,1 @@
-private/** filter=git-crypt diff=git-crypt
+.kattisrc filter=git-crypt diff=git-crypt
