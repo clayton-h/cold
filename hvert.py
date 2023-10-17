@@ -43,9 +43,9 @@ def nearest(input_city: str, local_cities: Dict[str, Dict[str, int]]) -> str:
     """
     closest_city = None
 
-    # skip over the input city's own listing
+    # return a city for those discluded from the dictionary
     if input_city not in local_cities:
-        return "1"
+        return "Akureyri"
 
     # find the shorter distance between the two cities
     closest_city = (

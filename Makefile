@@ -17,7 +17,7 @@ clean:
 # a. Rule for local unit test
 .PHONY: local-unit-test
 local-unit-test:
-	pytest -v test_hvert.py
+	pytest --verbose .
 
 # b. Rule for local Kattis test on sample input/output files
 .PHONY: local-kattis-test
