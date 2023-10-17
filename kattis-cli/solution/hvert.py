@@ -6,10 +6,11 @@
 # Description: This is a code solution for     #
 # the Kattis problem Hvert Skal Maeta.         #
 ################################################
+from typing import Dict
 
-# dictionary to store cities and their
+# nested dictionaries to store cities and their
 # respective distances to Reykjavik and Akureyri
-cities = {
+global_cities = {
     'Reykjavik': {'Reykjavik': 0, 'Akureyri': 388},
     'Akureyri': {'Reykjavik': 388, 'Akureyri': 0},
     'Kopavogur': {'Reykjavik': 6, 'Akureyri': 387},
@@ -20,43 +21,49 @@ cities = {
     'Arborg': {'Reykjavik': 64, 'Akureyri': 428},
     'Akranes': {'Reykjavik': 49, 'Akureyri': 350},
     'Fjardabyggd': {'Reykjavik': 659, 'Akureyri': 290},
-    'Mulating': {'Reykjavik': 603, 'Akureyri': 216},
+    'Mulathing': {'Reykjavik': 603, 'Akureyri': 216},
     'Seltjarnarnes': {'Reykjavik': 4, 'Akureyri': 390}
 }
 
 
-def findCloserCity(input_city, cities) -> str:
+def find_closer_city(input_city: str, local_cities: Dict[str, Dict[str, int]]) -> str:
+    """
+    A function that finds and returns
+    the closer of two cities given
+    user input (city).
+
+    Args:
+        input_city (string): A city from user input.
+        cities (dictionary): A dictionary containing cities
+                             and their distances to two fixed
+                             cities.
+
+    Returns:
+        str: The closest city.
+    """
     closest_city = None
 
-    for city in cities.items():
-        # skip over the input city's own listing
-        if city == input_city:
-            continue
+    # skip over the input city's own listing
+    if input_city not in local_cities:
+        return "1"
 
-        # find the shorter distance between the two cities
-        if cities[input_city]['Reykjavik'] > cities[input_city]['Akureyri']:
-            closest_city = 'Akureyri'
-        else:
-            closest_city = 'Reykjavik'
+    # find the shorter distance between the two cities
+    if local_cities[input_city]['Reykjavik'] > local_cities[input_city]['Akureyri']:
+        closest_city = 'Akureyri'
+    else:
+        closest_city = 'Reykjavik'
 
     return closest_city
 
 
-def readFile() -> str:
-    # open the input file in read mode
-    with open('1.in', 'r') as file:
-        content = file.read().strip()
-        return content
-    # file automatically closes
-
-
 def main() -> None:
-    # read in the text file
-    # find the closest city
-    # print it out
-    print(findCloserCity(input(), cities))
+    """
+    The main function takes user input (city),
+    finds the closest city,
+    and prints it out.
+    """
 
-    print("exiting main...")
+    print(find_closer_city(input(), global_cities))
 
 
 if __name__ == "__main__":
