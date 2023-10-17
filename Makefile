@@ -1,6 +1,6 @@
 #Makefile
 .phony: all
-all: clean
+all:
 	@echo "All done..."
 
 .PHONY: run

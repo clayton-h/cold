@@ -26,7 +26,7 @@ global_cities = {
 }
 
 
-def find_closer_city(input_city: str, local_cities: Dict[str, Dict[str, int]]) -> str:
+def nearest(input_city: str, local_cities: Dict[str, Dict[str, int]]) -> str:
     """
     A function that finds and returns
     the closer of two cities given
@@ -48,10 +48,10 @@ def find_closer_city(input_city: str, local_cities: Dict[str, Dict[str, int]]) -
         return "1"
 
     # find the shorter distance between the two cities
-    if local_cities[input_city]['Reykjavik'] > local_cities[input_city]['Akureyri']:
-        closest_city = 'Akureyri'
-    else:
-        closest_city = 'Reykjavik'
+    closest_city = (
+        'Akureyri' if local_cities[input_city]['Reykjavik'] >
+        local_cities[input_city]['Akureyri'] else 'Reykjavik'
+    )
 
     return closest_city
 
@@ -63,7 +63,7 @@ def main() -> None:
     and prints it out.
     """
 
-    print(find_closer_city(input(), global_cities))
+    print(nearest(input(), global_cities))
 
 
 if __name__ == "__main__":
