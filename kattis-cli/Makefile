@@ -43,7 +43,7 @@ type-check:
 # f. Rule to submit problem to Kattis using Kattis CLI
 .PHONY: submit-kattis
 submit-kattis:
-	kattis -f hvert.py
+	kattis -f hvert.py -p hvertskalmaeta
 
 # .phony: test
 # test:

@@ -54,7 +54,7 @@ def main() -> None:
     # read in the text file
     # find the closest city
     # print it out
-    print(findCloserCity(readFile(), cities))
+    print(findCloserCity(input(), cities))
 
     print("exiting main...")
 
